@@ -19,6 +19,7 @@ public class OrdersDAOImpl implements OrdersDAO{
 
   private final NamedParameterJdbcTemplate template;
 
+  //예약
   @Override
   public Orders order(Orders orders) {
     StringBuffer sb = new StringBuffer();
@@ -34,6 +35,7 @@ public class OrdersDAOImpl implements OrdersDAO{
     return orders;
   }
 
+  //예약 취소
   @Override
   public int orDelete(int onumber) {
     String sb = "delete from orders where onumber = :onumber ";

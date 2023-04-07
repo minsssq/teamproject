@@ -23,48 +23,49 @@ public class MembersSVCImpl implements MembersSVC {
   //회원수정
   @Override
   public void memUpdate(String mid, Members members){
-    membersDAO.memUpdate(members);
+    membersDAO.memUpdate(mid,members);
   }
 
   //회원탈퇴
   @Override
   public void memDelete(String mid){
+    membersDAO.memDelete(mid);
   }
 
   //회원조회(사업자)
   @Override
   public Members memFindB(String mid){
-
+    return membersDAO.memFindB(mid);
   }
 
   //회원조회(일반회원)
   @Override
   public Members memFindN(String mid){
-
+    return membersDAO.memFindN(mid);
   }
 
   //예약조회(사업자)
   @Override
   public Orders orderFindB(int cnumber){
-
+    return membersDAO.orderFindB(cnumber);
   }
 
   //예약조회(일반회원)
   @Override
   public Orders orderFindN(String mid){
-
+    return membersDAO.orderFindN(mid);
   }
 
   //아이디찾기
   @Override
   public Optional<String> idFind(String mname, String phone, String email){
-
+    return membersDAO.idFind(mname,phone,email);
   }
 
   //비밀번호찾기
   @Override
   public Optional<String> pwFind(String mid, String phone,String email){
-
+    return membersDAO.pwFind(mid,phone,email);
   }
 
   //회원유무
@@ -73,7 +74,7 @@ public class MembersSVCImpl implements MembersSVC {
 
   //로그인
   @Override
-  public Optional<Members> login(String email, String passwd){
-
+  public Optional<Members> login(String mid, String pw){
+    return membersDAO.login(mid,pw);
   }
 }
